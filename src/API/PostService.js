@@ -45,7 +45,7 @@ export default class PostService {
 
 			const page = { ...post, userAuthor }
 
-			return Post, page
+			return { Post, page }
 		})
 	}
 }

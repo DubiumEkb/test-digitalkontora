@@ -1,0 +1,46 @@
+main.main {
+	.postsList {
+		margin-top: 24px;
+		margin-bottom: 36px;
+		.col-xl-4 {
+			margin-bottom: 36px;
+		}
+
+		.card {
+			&-img {
+				width: 100%;
+				height: 200px;
+				object-fit: cover;
+				object-position: center;
+			}
+		}
+	}
+
+	.PostDetail {
+		.post__image--img {
+			object-fit: cover;
+			object-position: center;
+			width: 100%;
+			height: 100%;
+			max-height: 560px;
+		}
+
+		.title {
+			margin-top: 36px;
+			margin-bottom: 28px;
+		}
+
+		address {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			@media (max-width: 767px) {
+				flex-wrap: wrap;
+				p {
+					flex: 0 0 100%;
+					max-width: 100%;
+				}
+			}
+		}
+	}
+}

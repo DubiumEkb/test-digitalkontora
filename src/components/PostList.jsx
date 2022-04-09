@@ -1,12 +1,15 @@
 import React from 'react';
 import PostItem from './PostItem'
+import Row from "react-bootstrap/Row"
 
 const PostList = ({posts}) => {
 	return (
-		<section className="postList">
-			{posts.map((post, index) =>
-				<PostItem key={index + 1} post={post} />
-			)}
+		<section className="postsList">
+			<Row>
+				{posts.map((post, index) =>
+					<PostItem key={index + 1} post={post} />
+				)}
+			</Row>
 		</section>
 	)
 }

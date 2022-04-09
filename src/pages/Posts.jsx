@@ -3,7 +3,8 @@ import PostService from "../API/PostService";
 import {useFetching} from "../hooks/useFetching";
 import {getPageCount} from "../utils/pages";
 import PostList from "../components/PostList";
-import Pagination from "../components/UI/pagination/Pagination";
+import PaginationUI from "../components/UI/pagination/Pagination";
+import Container from 'react-bootstrap/Container'
 
 function Posts() {
 	const [posts, setPosts] = useState([])
@@ -28,17 +29,20 @@ function Posts() {
 
 	return (
 		<main className="main">
-			{postError &&
-				<h1>Произошла ошибка: {postError}</h1>
-			}
+			<Container>
+				{postError &&
+					<h1>Произошла ошибка: {postError}</h1>
+				}
 
-			<PostList posts={posts} />
+				<PostList posts={posts} />
 
-			<Pagination
-                page={page}
-                changePage={changePage}
-                totalPages={totalPages}
-            />
+				<PaginationUI
+					page={page}
+					changePage={changePage}
+					totalPages={totalPages}
+				/>
+
+			</Container>
 		</main>
 	)
 }

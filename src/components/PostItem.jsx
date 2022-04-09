@@ -1,28 +1,27 @@
 import React from 'react';
 import {useNavigate} from 'react-router-dom';
+import {Card, Button, Col } from "react-bootstrap"
 
 const PostItem = (props) => {
 	const navigate = useNavigate();
 	const image = `https://picsum.photos/1500/1500.jpg?random=${props?.post?.id}`
 
-	const divStyle = {
-		width: '100%',
-		height: '20px'
-	};
 	return (
-		<article id={props?.post?.id} className="post">
-			<div className="post__image">
-				<img className="post__image--img" src={image} alt="" style={divStyle} />
-			</div>
-			<div className="post__body">
-				<h2 className="post__body--header">{props?.post?.id}: {props?.post?.title}</h2>
-				<address>
-					<p>Автор: {props?.post?.userData.name}</p>
-				</address>
-				<p className="post__body--description">{props?.post?.body}</p>
-				<button className="post__body--more" onClick={() => navigate(`/posts/post-${props?.post?.id}`)}>Подробнее</button>
-			</div>
-		</article>
+		<Col sm={12} md={6} xl={4}>
+			<Card id={props?.post?.id}>
+				<Card.Img src={image} />
+				<Card.Body>
+					<Card.Title>{props?.post?.id}: {props?.post?.title}</Card.Title>
+					<address>
+						<p>Автор: <strong>{props?.post?.userData.name}</strong></p>
+					</address>
+					<Card.Text>
+						{props?.post?.body}
+					</Card.Text>
+					<Button variant="primary" onClick={() => navigate(`/posts/post-${props?.post?.id}`)}>Подробнее</Button>
+				</Card.Body>
+			</Card>
+		</Col>
 	)
 }
 

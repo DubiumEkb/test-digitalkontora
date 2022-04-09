@@ -1,15 +1,20 @@
-import React from 'react';
-import {getPagesArray} from "../../../utils/pages";
+import Pagination from "react-bootstrap/Pagination"
 
-const Pagination = ({totalPages, page, changePage}) => {
-    let pagesArray = getPagesArray(totalPages);
+const PaginationUI = ({totalPages, page, changePage}) => {
+    let items = [];
+    for (let number = 1; number <= totalPages; number++) {
+        items.push(
+            <Pagination.Item key={number} active={number === page}  onClick={() => changePage(number)}>
+                {number}
+            </Pagination.Item>,
+        );
+    }
+
     return (
-        <div className="page__wrapper">
-            {pagesArray.map(p =>
-                <button className={page === p ? 'page page__current' : 'page'} key={p} onClick={() => changePage(p)}>{p}</button>
-            )}
-        </div>
-    );
+        <>
+            <Pagination>{items}</Pagination>
+        </>
+    )
 }
 
-export default Pagination;
+export default PaginationUI;
