@@ -20,7 +20,7 @@ const PostItem = (props) => {
 					<p>Автор: {props?.post?.userData.name}</p>
 				</address>
 				<p className="post__body--description">{props?.post?.body}</p>
-				<button className="post__body--more" onClick={() => navigate(`/post-${props?.post?.id}`)}>Подробнее</button>
+				<button className="post__body--more" onClick={() => navigate(`/posts/post-${props?.post?.id}`)}>Подробнее</button>
 			</div>
 		</article>
 	)
