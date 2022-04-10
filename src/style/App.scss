@@ -1,4 +1,10 @@
 main.main {
+	.form_header {
+		.send {
+			align-self: flex-end;
+			margin-bottom: 15px;
+		}
+	}
 	.postsList {
 		margin-top: 24px;
 		margin-bottom: 36px;

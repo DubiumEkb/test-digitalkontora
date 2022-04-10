@@ -5,7 +5,6 @@ import {Card, Button, Col } from "react-bootstrap"
 const PostItem = (props) => {
 	const navigate = useNavigate();
 	const image = `https://picsum.photos/1500/1500.jpg?random=${props?.post?.id}`
-
 	return (
 		<Col sm={12} md={6} xl={4}>
 			<Card id={props?.post?.id}>
@@ -13,7 +12,7 @@ const PostItem = (props) => {
 				<Card.Body>
 					<Card.Title>{props?.post?.id}: {props?.post?.title}</Card.Title>
 					<address>
-						<p>Автор: <strong>{props?.post?.userData.name}</strong></p>
+						<p>Автор: <strong>{props?.post?.userData?.name}</strong></p>
 					</address>
 					<Card.Text>
 						{props?.post?.body}

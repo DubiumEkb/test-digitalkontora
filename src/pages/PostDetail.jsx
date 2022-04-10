@@ -18,7 +18,6 @@ const PostPage = () => {
 	}, [params.id])
 
 	const image = `https://picsum.photos/1500/1500.jpg?random=${params.id}`
-	console.log(post);
 
 	return (
 		<main className="main">

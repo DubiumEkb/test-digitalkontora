@@ -41,4 +41,18 @@ export default class PostService {
 
 		return post
 	}
+
+	static async postPost(data) {
+		await axios.post(
+			"https://jsonplaceholder.typicode.com/posts",
+			{
+				data,
+			},
+			{
+				headers: {
+					"Content-Type": "application/json; charset: utf-8",
+				},
+			},
+		)
+	}
 }

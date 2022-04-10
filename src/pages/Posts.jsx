@@ -4,6 +4,7 @@ import {useFetching} from "../hooks/useFetching";
 import {getPageCount} from "../utils/pages";
 import PostList from "../components/PostList";
 import PaginationUI from "../components/UI/pagination/Pagination";
+import PostForm from "../components/PostForm"
 import Container from 'react-bootstrap/Container'
 import {observer} from "mobx-react-lite"
 
@@ -24,6 +25,10 @@ const Posts = observer(() => {
         fetchPosts(limit, page)
     }, [limit, page])
 
+	const createPost = (newPost) => {
+        setPosts([...posts, newPost])
+    }
+
     const changePage = (page) => {
         setPage(page)
     }
@@ -31,6 +36,8 @@ const Posts = observer(() => {
 	return (
 		<main className="main">
 			<Container>
+				<PostForm create={createPost}/>
+
 				{postError &&
 					<h1>Произошла ошибка: {postError}</h1>
 				}
@@ -42,7 +49,6 @@ const Posts = observer(() => {
 					changePage={changePage}
 					totalPages={totalPages}
 				/>
-
 			</Container>
 		</main>
 	)
