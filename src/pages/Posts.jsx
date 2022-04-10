@@ -5,8 +5,9 @@ import {getPageCount} from "../utils/pages";
 import PostList from "../components/PostList";
 import PaginationUI from "../components/UI/pagination/Pagination";
 import Container from 'react-bootstrap/Container'
+import {observer} from "mobx-react-lite"
 
-function Posts() {
+const Posts = observer(() => {
 	const [posts, setPosts] = useState([])
 	const [totalPages, setTotalPages] = useState(0);
 	const [limit, setLimit] = useState(10);
@@ -45,6 +46,6 @@ function Posts() {
 			</Container>
 		</main>
 	)
-}
+})
 
 export default Posts;

@@ -1,6 +1,7 @@
 import Pagination from "react-bootstrap/Pagination"
+import {observer} from "mobx-react-lite"
 
-const PaginationUI = ({totalPages, page, changePage}) => {
+const PaginationUI = observer(({totalPages, page, changePage}) => {
     let items = [];
     for (let number = 1; number <= totalPages; number++) {
         items.push(
@@ -15,6 +16,6 @@ const PaginationUI = ({totalPages, page, changePage}) => {
             <Pagination>{items}</Pagination>
         </>
     )
-}
+})
 
 export default PaginationUI;

@@ -2,9 +2,9 @@ import React from 'react';
 import {Navigate, Routes, Route} from "react-router-dom";
 import Posts from "../pages/Posts"
 import PostsDetail from "../pages/PostDetail"
+import {observer} from "mobx-react-lite"
 
-
-function AppRouter() {
+const AppRouter = observer(() => {
 	return (
 		<Routes>
 			<Route path="/posts" element={<Posts />} />
@@ -15,6 +15,6 @@ function AppRouter() {
 			/>
 		</Routes>
 	);
-}
+})
 
 export default AppRouter

@@ -33,19 +33,12 @@ export default class PostService {
 		const post = await axios
 			.get(`https://jsonplaceholder.typicode.com/posts/${id}`)
 			.then((response) => response.data)
-		const user = await axios
-			.get("https://jsonplaceholder.typicode.com/users")
+		const getUsers = await axios
+			.get(`https://jsonplaceholder.typicode.com/users/${post.userId}`)
 			.then((response) => response.data)
 
-		return await axios.all([post, user]).then((response) => {
-			const Post = response[0]
-			const User = response[1]
+		post.user = { ...getUsers }
 
-			const userAuthor = User.find((user) => user.id === Post.userId)
-
-			const page = { ...post, userAuthor }
-
-			return { Post, page }
-		})
+		return post
 	}
 }
